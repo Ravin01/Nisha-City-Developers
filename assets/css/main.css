@@ -570,8 +570,10 @@ h6 {
 #preloader:before {
   content: "";
   position: fixed;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
   border: 6px solid #ffffff;
-  border-color: var(--accent-color) transparent var(--accent-color) transparent;
+  border-color: var(--accent-color) var(--accent-color) var(--accent-color) transparent;
   border-radius: 50%;
   width: 60px;
   height: 60px;
