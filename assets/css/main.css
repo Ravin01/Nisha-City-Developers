@@ -29,7 +29,7 @@
   --heading-color: #32353a;
 
   /* Accent Color - This is the main accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out. */
-  --accent-color: #e84545;
+  --accent-color: #1C4D52;
 
   /* Contrast Color - This is a color used for text when the background color is one of the heading, accent, or default colors. Its purpose is to ensure proper contrast and readability when placed over these more dominant colors. */
   --contrast-color: #ffffff;
@@ -38,10 +38,10 @@
 /* Nav Menu Colors */
 :root {
   /* Nav Color - This is the default color of the main navmenu links. */
-  --nav-color: #3a3939;
+  --nav-color: #1C4D52;
 
   /* Nav Hover Color - This color is applied to main navmenu links when they are hovered over. */
-  --nav-hover-color: #e84545;
+  --nav-hover-color: white;
 
   /* Nav Dropdown Background Color - This color is used as the background for dropdown boxes that appear when hovering over primary navigation items. */
   --nav-dropdown-background-color: black;
@@ -50,7 +50,7 @@
   --nav-dropdown-color: #3a3939;
 
   /* Nav Dropdown Hover Color - Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
-  --nav-dropdown-hover-color: #e84545;
+  --nav-dropdown-hover-color: #1C4D52;
 
   --primary-color : #1C4D52;
 }
@@ -186,7 +186,7 @@ h6 {
   --background-color: rgba(255, 255, 255, 0);
   --heading-color: black;
   --nav-color: black;
-  --nav-hover-color: #ffffff;
+  --nav-hover-color: #1C4D52;
 }
 
 /* Index Page Header on Scroll
@@ -195,7 +195,7 @@ h6 {
   --background-color: #ffffff;
   --heading-color: #32353a;
   --nav-color: #3a3939;
-  --nav-hover-color: #e84545;
+  --nav-hover-color: #1C4D52;
 }
 
 /*--------------------------------------------------------------
@@ -206,6 +206,7 @@ h6 {
   
   .navmenu {
     padding: 0;
+    height: 7vh;
   }
 
   .navmenu ul {
@@ -747,7 +748,7 @@ section,
   justify-content: center;
 }
 
-.hero img {
+.hero-img {
   position: absolute;
   inset: 0;
   display: block;
@@ -755,14 +756,23 @@ section,
   height: 100%;
   object-fit: cover;
   z-index: 1;
+  background-image: url("https://s3-alpha-sig.figma.com/img/cb3d/7301/a149d6eeb2ffe303a94179691de44a1f?Expires=1719187200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=SInsSglAJCZQtuxKRVVhGX~c4nNsK8lwu3n74O2J0ojfpZm-hEtKtNxl45FHl2HoTnzUyJt0JRuzGtgk1hN7B2UIZ1hY94bcMLiJQLRsAQ1rWdDWczX1rGxur9qb~jIqpHsGZ2vaEVjq5Y8XZi-MVUZszQPHfOKe032EwQLcMkRNCLZTD5dN4QM5YpHYH4U3BNKXRwkZOhg7UNB0~7bnIcSPI67ncolScppt4GS5sYGLajcZEvMk85Ye9E5dLn64B9QfmwCl7jSKbcuPQ0c6Lx7krvDDtVaVTk7kMcsLw64qDYWBBm4B5uO4xrvEulqhPLExjKCbpXTmWB98gy1-lw__");
+  background-position: center;
+  object-fit: cover;
+  background-size: cover;
+  transform: scaleX(-1);
 }
 
-.hero:before {
+.hero-img:before {
   content: "";
-  background: color-mix(in srgb, var(--background-color), transparent 50%);
+  background: linear-gradient(to right, black, transparent); /* Correct linear gradient */
   position: absolute;
-  inset: 0;
-  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2; /* Ensure it is above the background image but below any content */
+  border-radius: inherit; /* Match border radius if the parent has one */
 }
 
 .hero .container {
@@ -773,14 +783,26 @@ section,
 .hero h2 {
   color: var(--contrast-color);
   margin: 0;
-  font-size: 44px;
+  font-size: 35px;
   font-weight: 700;
 }
 
 .hero p {
   color: color-mix(in srgb, var(--default-color), transparent 20%);
   margin: 5px 0 0 0;
-  font-size: 20px;
+  font-size: 16px;
+}
+
+.hero-form{
+  position: absolute;
+  background-color: #FFFFFF;
+  width: 30vw;
+  height: 60vh;
+  border-radius: 10px;
+  right: 5vw;
+  top: 15vh;
+  z-index: 10;
+  opacity: 0.3;
 }
 
 .hero .sign-up-form {
@@ -1276,3 +1298,123 @@ section,
 
 
 
+
+
+
+
+
+
+
+
+
+/* Properties for sale */
+
+
+
+.sale-con-outer{
+  width: 90vw;
+  height: 90vh;
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.sale-con1{
+  width: 25%;
+  height: 90%;
+  border-radius: 10px;
+}
+
+.sale-con1 img{
+  object-fit: center;
+  width: 100%;
+  height: 60%;
+  border-radius: 10px;
+}
+
+.sale-text-con{
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.sale-con1 h3{
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.sale-para{
+  color: var(--primary-color);
+  font-size: 13px;
+}
+.sale-number-div{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.sale-border{
+  border: 1px solid #1C4D52;
+  height: 20px;
+}
+.sale-border2{
+  font-size: 18px;
+  color: black;
+}
+
+
+
+.footer{
+  background-color: var(--primary-color);
+  color: white;
+  height: 75vh;
+  padding: 10px 20px;
+}
+
+.footer-top{
+  display: flex;
+}
+
+.footer-first{
+  width: 30vw;
+}
+.footer-second .sitename{
+  color: white;
+  font-size: 25px;
+}
+.logo .sitename{
+  color: white;
+  font-size: 25px;
+}
+
+.hr-line-footer{
+  border: 1px solid white;
+  width: 30px;
+  margin-bottom: 20px;
+}
+.footer-long p{
+  color: white;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.hr-line2-footer{
+  width: 100%;
+  margin: 10px 0px;
+  border: 1px solid white;
+}
+
+.footer-second p{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.footer-copyright{
+  padding: 0px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
