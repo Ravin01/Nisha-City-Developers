@@ -209,4 +209,35 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+
+
+
+
+
+
+
+  const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
+
+  document.getElementById('contactForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const formData = new FormData(document.getElementById('contactForm'));
+      const data = Object.fromEntries(formData.entries());
+
+      fetch(scriptURL, {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers: { 'Content-Type': 'application/json' },
+      })
+      .then(response => response.json())
+      .then(result => {
+          document.getElementById('responseMessage').innerText = 'Thank you for your submission!';
+          document.getElementById('contactForm').reset();
+      })
+      .catch(error => console.error('Error!', error.message));
+  });
+
+
+
+
+
 })();

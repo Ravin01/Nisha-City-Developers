@@ -45,7 +45,7 @@
   <div class="header-top-short">
     <p>YOUR TRUSTED LAND PROMOTERS</p>
     <div class="header-top-short-con">
-      <p><i class="fa-solid fa-phone"></i>&nbsp;&nbsp;+91 9597755593</p>
+      <p><i class="fa-solid fa-phone"></i>&nbsp;&nbsp;<a href="https://wa.me/919597755593" target="_blank" style="color: white;" >+91 9597755593</a></p>
       <p><i class="fa-solid fa-clock"></i>&nbsp;&nbsp;Mon - Sun 10am to 6pm</p>
     </div>
   </div>
@@ -64,8 +64,6 @@
           <li><a href="index.html#hero" class="">Home</a></li>
           <li><a href="index.html#about">About</a></li>
           <li><a href="index.html#services">Properties</a></li>
-          <li><a href="index.html#portfolio">Agents</a></li>
-          <li><a href="index.html#pricing">Faq</a></li>
           <li><a href="index.html#contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -79,9 +77,9 @@
   <main class="main">
 
     <!-- Hero Section -->
-    <section id="hero" class="hero section">
+    <section id="hero" class="hero section" >
 
-      <div class="hero-img" ></div>
+      <div class="hero-img" id="contact" ></div>
 
       <div class="container">
         <div class="row">
@@ -93,18 +91,18 @@
         </div>
       </div>
 
-      <div class="hero-form" data-aos="fade-up" data-aos-delay="200" >
-            <h4 class="hero-form-title" >GET IN <span>TOUCH</span></h4>
-            <p>Fill out this form and one of our agents will be in touch with you soon</p>
-            <form action="" class="hero-main-form" >
-              <input type="text" placeholder="Name" >
-              <input type="text" placeholder="Email" >
-              <input type="text" placeholder="Number" >
-              <input type="text" placeholder="City" >
-              <button>Submit</button>
-            </form>
-      </div>
-
+      <div class="hero-form" data-aos="fade-up" data-aos-delay="200">
+        <h4 class="hero-form-title">GET IN <span>TOUCH</span></h4>
+        <p>Fill out this form and one of our agents will be in touch with you soon</p>
+        <form id="contactForm" class="hero-main-form" >
+            <input type="text" placeholder="Name" id="name" required>
+            <input type="email" placeholder="Email" id="email" required>
+            <input type="text" placeholder="Number" id="number" required>
+            <input type="text" placeholder="City" id="city" required>
+            <button type="submit">Submit</button>
+        </form>
+        <p id="responseMessage" class="response-message"></p>
+    </div>
     </section><!-- /Hero Section -->
 
     <!-- About Section -->
@@ -248,7 +246,7 @@
             <div class="about-con-img" data-aos="fade-up" data-aos-delay="100" >
               <img
                 src="https://s3-alpha-sig.figma.com/img/83c3/1ef3/890b0e442c09517be6fa7ae588e63b29?Expires=1718582400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=WCFCaJs7lA0k8gpx8qxV87FbrsTM-tCvQSTk9GBvt65QpoyHHnNNSwzqINSyePyoqTGseyjQsvNO8ngFZyRF2GY0KJyb8yteI45En6KG4hrP5gMLyoA6xXn4nNoCxzKe0ij~Pakdl7LWsef0KA9~oEGiHhKTtRG4-I~6kIKAHtVI9iDBDXXpjt7RkzZZwIiF1VltoRXLi9DPJwaAn1jnlYxpHi3~5AjshQyolecLnGyKC-WKNWo86aJPi8SldmDqsjoQ93E4TrvR2H7YcIZnxhvdBvDQhH2i9xsO1sZ-wCVVjJXUQ021OkmPqMLIuIYR5hxRnmz3z-xFGHqwKaMBBw__"
-                alt="" class="about-img">
+                alt="" class="about-img" data-aos-delay="100" >
             </div>
             <div class="about-con-text" data-aos="fade-up" data-aos-delay="200" >
               <h2>EXPLORE LIFESTYLES</h2>
@@ -393,10 +391,10 @@
     <div class="footer-copyright" >
 <p>© Nisha City Developers - All right reserved</p>
 <div class="footer-links" >
-  <i class="fa-brands fa-twitter"></i>
-  <i class="fa-brands fa-facebook"></i>
-  <i class="fa-brands fa-whatsapp"></i>
-  <i class="fa-brands fa-youtube"></i>
+  <a href="https://www.instagram.com/nisha_citydeveloper" target="_blank" ><i class="fa-brands fa-instagram"></i></a>
+  <a href="https://www.facebook.com/nishacitydeveloperssalem" target="_blank" ><i class="fa-brands fa-facebook"></i></a>
+  <a href="https://wa.me/919597755593" target="_blank" ><i class="fa-brands fa-whatsapp"></i></a>
+  <a href="https://youtube.com/@nishacitydeveloperbuilder7760?si=YvIL-KFzw_EcKlOn" target="_blank" ><i class="fa-brands fa-youtube"></i></a>
 </div>
     </div>
 
