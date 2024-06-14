@@ -216,25 +216,32 @@
 
 
 
-  const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
-
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwOt_DCsdDCMcpLILkSCAqmyMnMrLyyMS_0CH4CuCVRRnC1IFha0J12dT4-ZQRSx6IW/exec'
   document.getElementById('contactForm').addEventListener('submit', e => {
-      e.preventDefault();
-      const formData = new FormData(document.getElementById('contactForm'));
-      const data = Object.fromEntries(formData.entries());
+    e.preventDefault();
 
-      fetch(scriptURL, {
-          method: 'POST',
-          body: JSON.stringify(data),
-          headers: { 'Content-Type': 'application/json' },
-      })
-      .then(response => response.json())
-      .then(result => {
-          document.getElementById('responseMessage').innerText = 'Thank you for your submission!';
-          document.getElementById('contactForm').reset();
-      })
-      .catch(error => console.error('Error!', error.message));
-  });
+    const form = document.getElementById('contactForm');
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    console.log('Data to be sent:', data);
+
+    fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' },
+    })
+    .then(response => response.json())
+    .then(result => {
+        console.log('Server response:', result);
+        document.getElementById('responseMessage').innerText = 'Thank you for your submission!';
+        form.reset();
+    })
+    .catch(error => console.error('Error!', error.message));
+});
+
+
+
 
 
 
