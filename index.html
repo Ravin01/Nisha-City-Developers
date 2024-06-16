@@ -44,7 +44,14 @@
 <body class="index-page">
   <div class="header-top-short">
     <p>YOUR TRUSTED LAND PROMOTERS</p>
+    
     <div class="header-top-short-con">
+      <div class="header-top-links" >
+        <a href="https://www.instagram.com/nisha_citydeveloper" target="_blank" ><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/nishacitydeveloperssalem" target="_blank" ><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://wa.me/919597755593" target="_blank" ><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://youtube.com/@nishacitydeveloperbuilder7760?si=YvIL-KFzw_EcKlOn" target="_blank" ><i class="fa-brands fa-youtube"></i></a>
+      </div>
       <p><i class="fa-solid fa-phone"></i>&nbsp;&nbsp;<a href="https://wa.me/919597755593" target="_blank" style="color: white;" >+91 9597755593</a></p>
       <p><i class="fa-solid fa-clock"></i>&nbsp;&nbsp;Mon - Sun 10am to 6pm</p>
     </div>
@@ -76,34 +83,37 @@
 
   <main class="main">
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section" >
+<!-- Hero Section -->
+<section id="hero" class="hero section">
+  <div class="hero-img" id="contact"></div>
 
-      <div class="hero-img" id="contact" ></div>
-
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-10">
-            <h2 data-aos="fade-up" data-aos-delay="100">Nisha City Developer & Builder</h2>
-            <p data-aos="fade-up" data-aos-delay="200">“Building Communities, Creating Value. Your Trust Land promoters”
-            </p>
-          </div>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10">
+        <h2 data-aos="fade-up" data-aos-delay="100">Nisha City Developer & Builder</h2>
+        <p data-aos="fade-up" data-aos-delay="200">“Building Communities, Creating Value. Your Trust Land promoters”</p>
       </div>
-
-      <div class="hero-form" data-aos="fade-up" data-aos-delay="200">
-        <h4 class="hero-form-title">GET IN <span>TOUCH</span></h4>
-        <p>Fill out this form and one of our agents will be in touch with you soon</p>
-        <form id="contactForm" class="hero-main-form">
-            <input type="text" name="name" placeholder="Name" id="name" required>
-            <input type="email" name="email" placeholder="Email" id="email" required>
-            <input type="text" name="number" placeholder="Number" id="number" required>
-            <input type="text" name="city" placeholder="City" id="city" required>
-            <button type="submit">Submit</button>
-        </form>
-        <p id="responseMessage" class="response-message"></p>
     </div>
-    </section><!-- /Hero Section -->
+  </div>
+
+  <div class="hero-form" data-aos="fade-up" data-aos-delay="200">
+    <h4 class="hero-form-title">GET IN <span>TOUCH</span></h4>
+    <p>Fill out this form and one of our agents will be in touch with you soon</p>
+    <form id="contactForm" class="hero-main-form" name="contact-form" method="post" action="">
+      <input type="text" name="Name" placeholder="Name" id="name" required>
+      <input type="email" name="Email" placeholder="Email" id="email" required>
+      <input type="text" name="Number" placeholder="Number" id="number" required>
+      <input type="text" name="City" placeholder="City" id="city" required>
+      <button type="submit">Submit</button>
+    </form>
+    <p id="responseMessage" class="response-message"></p>
+  </div>
+
+  <div id="loaderDiv" class="loader-div" style="display: none;">
+    <div class="loader"></div>
+  </div>
+</section>
+
 
     <!-- About Section -->
     <section id="about" class="about section">
