@@ -269,7 +269,28 @@ form.addEventListener('submit', e => {
 });
 
 
-responseMessage.innerText = 'Thank you for your submission! We will be in touch soon.';
+$(document).ready(function(){
+  $('.owl-carousel').owlCarousel({
+    loop: true,
+    margin: 10,
+    nav: true,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplaySpeed: 1000,
+    responsive:{
+      0:{
+        items: 1
+      },
+      600:{
+        items: 2
+      },
+      1000:{
+        items: 3
+      }
+    }
+  });
+});
+
 
 
 })();
