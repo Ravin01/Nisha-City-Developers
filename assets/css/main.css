@@ -569,13 +569,16 @@ h6 {
   overflow: hidden;
   background: var(--background-color);
   transition: all 0.6s ease-out;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #preloader:before {
   content: "";
-  position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
+
   border: 6px solid #ffffff;
   border-color: var(--accent-color) var(--accent-color) var(--accent-color) transparent;
   border-radius: 50%;
@@ -635,6 +638,9 @@ h6 {
     transition-delay: 0 !important;
   }
 }
+
+
+
 
 /*--------------------------------------------------------------
 # Global Page Titles & Breadcrumbs
