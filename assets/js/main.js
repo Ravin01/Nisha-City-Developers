@@ -242,6 +242,7 @@
 const form = document.forms['contact-form'];
 const responseMessage = document.getElementById('responseMessage');
 const loaderDiv = document.getElementById('loaderDiv');
+const popupContainer = document.querySelector('.popup-con');
 
 form.addEventListener('submit', e => {
   e.preventDefault();
@@ -252,6 +253,9 @@ form.addEventListener('submit', e => {
       loaderDiv.style.display = 'none'; // Hide the loader
       responseMessage.innerText = 'Thank you for your submission! We will be in touch soon.';
       responseMessage.style.display = 'block';
+      setTimeout(() => {
+        popupContainer.style.display = 'none';
+      }, 3000);
       form.reset();
       setTimeout(() => {
         responseMessage.style.display = 'none';
@@ -267,6 +271,24 @@ form.addEventListener('submit', e => {
       console.error('Error!', error.message);
     });
 });
+
+
+window.addEventListener('load', () => {
+  // Select the 'x' button
+  const closeButton = document.querySelector('.popup-form-x');
+
+  // After 15 seconds, display the 'x' button
+  setTimeout(() => {
+    closeButton.style.display = 'block'; // Show the 'x' button
+  }, 15000); // 15000 milliseconds = 15 seconds
+
+  // Event listener to close the popup when 'x' button is clicked
+  const popupContainer = document.querySelector('.popup-con');
+  closeButton.addEventListener('click', () => {
+    popupContainer.style.display = 'none';
+  });
+});
+
 
 
 $(document).ready(function(){
