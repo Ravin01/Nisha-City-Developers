@@ -69,6 +69,10 @@ body {
   font-family: var(--default-font);
 }
 
+body::-webkit-scrollbar{
+  display: none;
+}
+
 a {
   color: var(--accent-color);
   text-decoration: none;
@@ -400,6 +404,7 @@ h6 {
     margin-right: 10px;
     cursor: pointer;
     transition: color 0.3s;
+    z-index: 10;
   }
 
   .navmenu {
@@ -547,15 +552,50 @@ h6 {
 }
 
 .response-message {
-  display: none;
-  margin-top: 20px;
-  padding: 10px;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  padding: 15px;
   width: 80%;
-  border: 2px solid #4CAF50;
+  max-width: 400px;
+  height: auto;
   background-color: #4CAF50;
   border-radius: 5px;
   text-align: center;
+  display: flex;
+  z-index: 1000;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  /* visibility: visible; */
+  font-size: 13px;
+  transition: visibility 0s, opacity 1s ease-in-out;
+  word-wrap: break-word;
 }
+
+@media (min-width: 768px) {
+  .response-message {
+    top: 10px;
+    right: 10px;
+    width: 300px;
+    height: 100px;
+    padding: 0 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .response-message {
+    top: 20px;
+    right: 20px;
+    width: 400px;
+    height: 100px;
+    padding: 0 20px;
+    font-size: 16px;
+  }
+}
+
 
 
 
@@ -772,7 +812,7 @@ section,
   left: 0;
   height: 100%;
   width: 100%;
-  z-index: 100;
+  z-index: 1000;
   background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
@@ -783,12 +823,13 @@ section,
   padding: 15px;
   width: 45%;
   height: 85%;
-  background-color: white;
+  background-color: #cacfd2;
   border-radius: 10px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
+  z-index: 1000;
 }
 
 .popup-form-title {
@@ -811,7 +852,7 @@ section,
   height: 40px;
   border-radius: 8px;
   color: black;
-  background-color: #cacaca;
+  background-color: white;
   font-weight: 600;
   width: 100%;
 }
@@ -836,6 +877,7 @@ section,
   font-size: 25px;
   cursor: pointer;
 }
+
 
 /* Responsive design */
 
@@ -879,6 +921,7 @@ section,
     font-size: 16px;
     padding: 6px 12px;
     height: 38px;
+    margin: 10px 0px;
   }
 
   .popup-form-x {
@@ -970,8 +1013,15 @@ section,
 
 .hero .container-fluid div h2{
   z-index: 3;
-  font-size: 35px;
+  font-size: 50px;
   font-weight: bold;
+  text-align: center;
+}
+
+.hero .container-fluid div p{
+  text-align: center;
+  font-size: 20px;
+  margin-top: 20px;
 }
 
 
@@ -1081,17 +1131,17 @@ section,
 
 @media screen and  (max-width: 450px){
   .hero, .hero-img, .hero-img::before{
-    height: 95vh;
+    height: 70vh;
   }
   .hero .container-fluid{
     flex-direction: column;
-    padding: 50px 30px;
+    padding: 50px 10px;
   }
   .hero .container-fluid div h2{
-    font-size: 20px;
+    font-size: 24px;
   }
   .hero .container-fluid div p{
-    font-size: 14px;
+    font-size: 15px;
   }
   .hero-form{
     width: 100%;

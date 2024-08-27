@@ -112,10 +112,10 @@
   </div>
 
 
-  <div class="popup-con">
+  <div class="popup-con" style="z-index: 1000;" >
     <i class="fa-solid fa-x popup-form-x" style="display: none;"></i> <!-- Initially hidden -->
-    <div class="popup-content">
-      <h4 class="popup-form-title">Nisha City Developer & Builders</h4>
+    <div class="popup-content" data-aos="fade-up" data-aos-delay="200" >
+      <h4 class="popup-form-title">Nisha City Developer & Builder</h4>
       <p>Don't Leave without an exclusive offer from us!</p>
       <form id="contactForm" class="popup-main-form" name="contact-form" method="post" action="">
         <label for="Name">Name *</label>
@@ -126,16 +126,18 @@
         <input type="text" name="City" placeholder="Enter your City" id="city">
         <button type="submit">Continue</button>
       </form>
-      <p id="responseMessage" class="response-message"></p>
+      
     </div>
   </div>
+
+  <p id="responseMessage" class="response-message" data-aos="fade-left" data-aos-delay="200" >
+    Thank you for your submission! We will be in touch soon.
+  </p>
 
   <header id="header" class="header d-flex align-items-center">
     <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
         <img class="sitename" src="./assets/img/logo/logo.png"></img>
       </a>
 
@@ -146,7 +148,7 @@
           <li><a href="index.html#properties">Properties</a></li>
           <li><a href="index.html#footer">Contact</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list" id="toggle-btn" style="display: none;" ></i>
       </nav>
 
       <a class="btn-getstarted" href="index.html#about">Get Started</a>
@@ -171,7 +173,7 @@
         </div>
 
 
-        <div class="hero-form" data-aos="fade-up" data-aos-delay="200">
+        <!-- <div class="hero-form" data-aos="fade-up" data-aos-delay="200">
           
           <h4 class="hero-form-title">GET IN <span>TOUCH</span></h4>
           <p>Fill out this form and one of our agents will be in touch with you soon</p>
@@ -183,7 +185,7 @@
             <button type="submit">Submit</button>
           </form>
           <p id="responseMessage" class="response-message"></p>
-        </div>
+        </div> -->
       </div>
 
       <div id="loaderDiv" class="loader-div" style="display: none;">

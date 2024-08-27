@@ -242,35 +242,46 @@
 const form = document.forms['contact-form'];
 const responseMessage = document.getElementById('responseMessage');
 const loaderDiv = document.getElementById('loaderDiv');
+const toggle_btn = document.getElementById('toggle-btn');
 const popupContainer = document.querySelector('.popup-con');
 
 form.addEventListener('submit', e => {
   e.preventDefault();
-  loaderDiv.style.display = 'flex'; // Show the loader
+  loaderDiv.style.display = 'flex';
   fetch(scriptURL, { method: 'POST', body: new FormData(form) })
     .then(response => response.json())
     .then(response => {
-      loaderDiv.style.display = 'none'; // Hide the loader
+      loaderDiv.style.display = 'none';
       responseMessage.innerText = 'Thank you for your submission! We will be in touch soon.';
-      responseMessage.style.display = 'block';
-      setTimeout(() => {
-        popupContainer.style.display = 'none';
-      }, 3000);
+      responseMessage.style.visibility = 'visible';
+      responseMessage.style.opacity = '1';
+      toggle_btn.style.display = 'inline-block'
+      popupContainer.style.display = 'none';
+      // Trigger AOS animations after the element is made visible
+      AOS.refresh();
+
       form.reset();
       setTimeout(() => {
-        responseMessage.style.display = 'none';
-      }, 5000); // Hide the message after 5 seconds
+        responseMessage.style.visibility = 'hidden';
+        responseMessage.style.opacity = '0';
+      }, 5000);
     })
     .catch(error => {
-      loaderDiv.style.display = 'none'; // Hide the loader
+      
+      loaderDiv.style.display = 'none'; 
       responseMessage.innerText = 'There was an error submitting the form. Please try again.';
-      responseMessage.style.display = 'block';
+      responseMessage.style.visibility = 'visible';
+      responseMessage.style.opacity = '1';
       responseMessage.style.backgroundColor = '#f8d7da';
       responseMessage.style.color = '#721c24';
       responseMessage.style.borderColor = '#f5c6cb';
+
+      AOS.refresh();
+
       console.error('Error!', error.message);
     });
 });
+
 
 
 window.addEventListener('load', () => {
@@ -286,6 +297,7 @@ window.addEventListener('load', () => {
   const popupContainer = document.querySelector('.popup-con');
   closeButton.addEventListener('click', () => {
     popupContainer.style.display = 'none';
+    toggle_btn.style.display = 'inline-block'
   });
 });
 
