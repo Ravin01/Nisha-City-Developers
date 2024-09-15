@@ -239,92 +239,103 @@
   const scriptURL =
     "https://script.google.com/macros/s/AKfycbwtiPIGYw997dIcdwGyfWKz-Z8HIwtMBAm06lyMGb368YstJl57G-ZGURy5tzQtzRqo/exec";
 
-const form = document.forms['contact-form'];
-const responseMessage = document.getElementById('responseMessage');
-const loaderDiv = document.getElementById('loaderDiv');
-const toggle_btn = document.getElementById('toggle-btn');
-const popupContainer = document.querySelector('.popup-con');
+  // Get the popup container
+  const popupContainer = document.querySelector(".popup-con");
 
-form.addEventListener('submit', e => {
-  e.preventDefault();
-  loaderDiv.style.display = 'flex';
-  fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-    .then(response => response.json())
-    .then(response => {
-      loaderDiv.style.display = 'none';
-      responseMessage.innerText = 'Thank you for your submission! We will be in touch soon.';
-      responseMessage.style.visibility = 'visible';
-      responseMessage.style.opacity = '1';
-      toggle_btn.style.display = 'inline-block'
-      popupContainer.style.display = 'none';
-      // Trigger AOS animations after the element is made visible
-      AOS.refresh();
+  // Check if the popup has already been shown
+  const popupShown = sessionStorage.getItem("popupShown");
 
-      form.reset();
-      setTimeout(() => {
-        responseMessage.style.visibility = 'hidden';
-        responseMessage.style.opacity = '0';
-      }, 5000);
-    })
-    .catch(error => {
-      
-      loaderDiv.style.display = 'none'; 
-      responseMessage.innerText = 'There was an error submitting the form. Please try again.';
-      responseMessage.style.visibility = 'visible';
-      responseMessage.style.opacity = '1';
-      responseMessage.style.backgroundColor = '#f8d7da';
-      responseMessage.style.color = '#721c24';
-      responseMessage.style.borderColor = '#f5c6cb';
+  if (!popupShown) {
+    // Show the popup if it hasn't been shown yet
+    popupContainer.style.display = "flex";
 
-      AOS.refresh();
+    // Mark the popup as shown by setting an item in sessionStorage
+    sessionStorage.setItem("popupShown", "true");
+  } else {
+    // Hide the popup if it has been shown before
+    popupContainer.style.display = "none";
+  }
 
-      console.error('Error!', error.message);
+  const form = document.forms["contact-form"];
+  const responseMessage = document.getElementById("responseMessage");
+  const loaderDiv = document.getElementById("loaderDiv");
+  const toggle_btn = document.getElementById("toggle-btn");
+  // const popupContainer = document.querySelector('.popup-con');
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    loaderDiv.style.display = "flex";
+    fetch(scriptURL, { method: "POST", body: new FormData(form) })
+      .then((response) => response.json())
+      .then((response) => {
+        loaderDiv.style.display = "none";
+        responseMessage.innerText =
+          "Thank you for your submission! We will be in touch soon.";
+        responseMessage.style.visibility = "visible";
+        responseMessage.style.opacity = "1";
+        toggle_btn.style.display = "inline-block";
+        popupContainer.style.display = "none";
+        // Trigger AOS animations after the element is made visible
+        AOS.refresh();
+
+        form.reset();
+        setTimeout(() => {
+          responseMessage.style.visibility = "hidden";
+          responseMessage.style.opacity = "0";
+        }, 5000);
+      })
+      .catch((error) => {
+        loaderDiv.style.display = "none";
+        responseMessage.innerText =
+          "There was an error submitting the form. Please try again.";
+        responseMessage.style.visibility = "visible";
+        responseMessage.style.opacity = "1";
+        responseMessage.style.backgroundColor = "#f8d7da";
+        responseMessage.style.color = "#721c24";
+        responseMessage.style.borderColor = "#f5c6cb";
+
+        AOS.refresh();
+
+        console.error("Error!", error.message);
+      });
+  });
+
+  window.addEventListener("load", () => {
+    // Select the 'x' button
+    const closeButton = document.querySelector(".popup-form-x");
+
+    // After 15 seconds, display the 'x' button
+    setTimeout(() => {
+      closeButton.style.display = "block"; // Show the 'x' button
+    }, 15000); // 15000 milliseconds = 15 seconds
+
+    // Event listener to close the popup when 'x' button is clicked
+    const popupContainer = document.querySelector(".popup-con");
+    closeButton.addEventListener("click", () => {
+      popupContainer.style.display = "none";
+      toggle_btn.style.display = "inline-block";
     });
-});
-
-
-
-window.addEventListener('load', () => {
-  // Select the 'x' button
-  const closeButton = document.querySelector('.popup-form-x');
-
-  // After 15 seconds, display the 'x' button
-  setTimeout(() => {
-    closeButton.style.display = 'block'; // Show the 'x' button
-  }, 15000); // 15000 milliseconds = 15 seconds
-
-  // Event listener to close the popup when 'x' button is clicked
-  const popupContainer = document.querySelector('.popup-con');
-  closeButton.addEventListener('click', () => {
-    popupContainer.style.display = 'none';
-    toggle_btn.style.display = 'inline-block'
   });
-});
 
-
-
-$(document).ready(function(){
-  $('.owl-carousel').owlCarousel({
-    loop: true,
-    margin: 10,
-    nav: true,
-    autoplay: true,
-    autoplayTimeout: 3000,
-    autoplaySpeed: 1000,
-    responsive:{
-      0:{
-        items: 1
+  $(document).ready(function () {
+    $(".owl-carousel").owlCarousel({
+      loop: true,
+      margin: 10,
+      nav: true,
+      autoplay: true,
+      autoplayTimeout: 3000,
+      autoplaySpeed: 1000,
+      responsive: {
+        0: {
+          items: 1,
+        },
+        600: {
+          items: 2,
+        },
+        1000: {
+          items: 3,
+        },
       },
-      600:{
-        items: 2
-      },
-      1000:{
-        items: 3
-      }
-    }
+    });
   });
-});
-
-
-
 })();
