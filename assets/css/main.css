@@ -1131,7 +1131,7 @@ section,
 
 @media screen and  (max-width: 450px){
   .hero, .hero-img, .hero-img::before{
-    height: 70vh;
+    height: 105vh;
   }
   .hero .container-fluid{
     flex-direction: column;
@@ -1145,6 +1145,7 @@ section,
   }
   .hero-form{
     width: 100%;
+    height: 100%;
   }
 }
 

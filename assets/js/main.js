@@ -307,7 +307,7 @@
     // After 15 seconds, display the 'x' button
     setTimeout(() => {
       closeButton.style.display = "block"; // Show the 'x' button
-    }, 15000); // 15000 milliseconds = 15 seconds
+    }, 10000); // 15000 milliseconds = 15 seconds
 
     // Event listener to close the popup when 'x' button is clicked
     const popupContainer = document.querySelector(".popup-con");
